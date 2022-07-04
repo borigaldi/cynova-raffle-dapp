@@ -39,7 +39,7 @@ const ExploreRafflesScreen: FC = () => {
     return toShow;
   }, [raffles, filterMap, showOwnRafflesOnly, hideEndedRaffles]);
 
-  if (raffles.size === 0 && fetching)
+/*   if (raffles.size === 0 && fetching)
     return (
       <>
         <Typography variant="h1" className={classes.titleBar}>
@@ -61,7 +61,7 @@ const ExploreRafflesScreen: FC = () => {
           dRaffles will be coming soon!
         </Typography>
       </>
-    );
+    ); */
 
   return (
     <>

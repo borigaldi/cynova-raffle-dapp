@@ -19,14 +19,14 @@ pub const PROTOCOL_FEE_BPS: u128 = 0;
 pub mod treasury {
     use super::*;
     // Replace with your treasury, this is the default treasury for testing purposes
-    declare_id!("Treasury11111111111111111111111111111111112");
+    declare_id!("PeRXuY1P4cnzDZEPH1ancRVSyQMDpnTF27BwmQ1kkWq");
 }
 
 #[cfg(not(feature = "production"))]
-declare_id!("dRaFFLe111111111111111111111111111111111112");
+declare_id!("rafdfDKiLiny6puqDfeLRTN1xUscNxi5ew4QAqCHpQU");
 
 #[cfg(feature = "production")]
-declare_id!("dRafA7ymQiLKjR5dmmdZC9RPX4EQUjqYFB3mWokRuDs");
+declare_id!("rafdfDKiLiny6puqDfeLRTN1xUscNxi5ew4QAqCHpQU");
 
 #[program]
 pub mod draffle {

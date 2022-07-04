@@ -1,11 +1,11 @@
 anchor_version = "0.17.0"
 
 [provider]
-cluster = "mainnet"
-wallet = "~/.config/solana/id.json"
+cluster = "devnet"
+wallet = "~/sites/cynova/operations/deploy-keypair.json"
 
-[programs.mainnet]
-draffle = "dRafA7ymQiLKjR5dmmdZC9RPX4EQUjqYFB3mWokRuDs"
+[programs.devnet]
+draffle = "rafdfDKiLiny6puqDfeLRTN1xUscNxi5ew4QAqCHpQU"
 
 [scripts]
 test = "mocha -t 1000000 tests"

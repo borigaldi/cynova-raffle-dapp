@@ -30,7 +30,7 @@ pub struct ConfigOverride {
     #[clap(
         global = true,
         long = "program-id",
-        default_value = "dRaFFLe111111111111111111111111111111111112"
+        default_value = "rafdfDKiLiny6puqDfeLRTN1xUscNxi5ew4QAqCHpQU"
     )]
     pub program_id: String,
 }
