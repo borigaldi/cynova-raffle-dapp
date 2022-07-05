@@ -14,13 +14,13 @@ const Footer: FC = () => {
   return (
     <div className={classes.root}>
       <div className={classes.socialLink}>
-        <Link target="blank" to={`https://solscan.io/token/discord`}>
-          <img src={discordLogo} alt={'disord-logo'} width="50px" />
+        <Link target="blank" to={`https://discord.gg/76T6dN8RqB`}>
+          <img src={discordLogo} alt={'disord-logo'} width="25px" />
         </Link>
       </div>
       <div className={classes.socialLink}>
-        <Link target="blank" to={`https://solscan.io/token/twitter`}>
-          <img src={twitterLogo} alt={'twitter-logo'} width="50px" />
+        <Link target="blank" to={`https://twitter.com/the_cynova?lang=en`}>
+          <img src={twitterLogo} alt={'twitter-logo'} width="25px" />
         </Link>
       </div>
     </div>

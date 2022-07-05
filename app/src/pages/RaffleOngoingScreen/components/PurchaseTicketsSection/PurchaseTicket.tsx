@@ -453,7 +453,7 @@ export const PurchaseTickets: FC<PurchaseTicketsProps> = ({
                   );
                 }}
               >
-                <MenuItem value="" disabled>
+                <MenuItem value="">
                   Select purchase currency
                 </MenuItem>
                 {[...paymentOptions.values()].map(({ mint }) => {

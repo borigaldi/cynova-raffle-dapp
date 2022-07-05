@@ -49,7 +49,7 @@ const LandingScreen: FC = () => {
             </Link>
           </Tooltip>
         </div>
-        <div className={classes.socialLinkContainer}>
+{/*         <div className={classes.socialLinkContainer}>
           <Tooltip title="Litepaper" placement="top">
             <Link
               className={classes.socialLink}
@@ -59,7 +59,7 @@ const LandingScreen: FC = () => {
               <img src={documentLogo} alt={'document-logo'} width="50px" />
             </Link>
           </Tooltip>
-        </div>
+        </div> */}
       </div>
       <div className={classes.buttonContainer}>
         <Button

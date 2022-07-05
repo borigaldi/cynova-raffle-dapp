@@ -66,7 +66,7 @@ const ExploreRafflesScreen: FC = () => {
   return (
     <>
       <Typography variant="h1" className={classes.titleBar}>
-        Explore dRaffles
+        Our Raffles
       </Typography>
       <FilterBar
         hideEndedRaffles={hideEndedRaffles}

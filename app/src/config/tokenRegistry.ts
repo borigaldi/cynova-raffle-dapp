@@ -68,11 +68,11 @@ const tokenRegistry = {
     logoURI: '/dRaffle-logo.png',
     tags: []
   },
-  '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU': {
+  'NovNrxPNjmLVFscH5rjMbec7C4BdAHms9WK21xjsP3p': {
     chainId: 101,
-    address: '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU',
-    symbol: 'SAMO',
-    name: 'SAMO',
+    address: 'NovNrxPNjmLVFscH5rjMbec7C4BdAHms9WK21xjsP3p',
+    symbol: 'NOVAX',
+    name: 'NOVAX',
     decimals: 9,
     logoURI: '/resources/samo-logo.png',
     tags: []

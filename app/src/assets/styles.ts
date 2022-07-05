@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   mainButton: {
     width: '100%',
     height: '100%',
-    backgroundColor: theme.palette.primary.main,
+/*     backgroundColor: theme.palette.primary.main, */
     borderColor: theme.palette.primary.main,
     color: theme.palette.common.white,
     '&:hover': {

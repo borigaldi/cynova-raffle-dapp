@@ -119,10 +119,10 @@ const RafflesStoreProvider: FC = ({ children = null as any }) => {
       try {
         let { raffleDataRawProgramAccounts, entrantsDataProgramAccounts } =
           await getRaffleProgramAccounts(draffleClient);
-        raffleDataRawProgramAccounts = raffleDataRawProgramAccounts.filter(
+/*         raffleDataRawProgramAccounts = raffleDataRawProgramAccounts.filter(
           ({ publicKey }) =>
             includeEmpty || RAFFLES_WHITELIST.has(publicKey.toBase58())
-        );
+        ); */
 
         const newRaffles = (
           await Promise.all(

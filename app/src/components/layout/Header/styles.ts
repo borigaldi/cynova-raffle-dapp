@@ -21,9 +21,8 @@ export const useStyles = makeStyles<Theme, { device: DeviceType }>(
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      backgroundColor: 'rgba(6,18,98,1)',
+      backgroundColor: 'transparent',
       alignItems: 'center',
-      boxShadow: '0 0 10px 0 #000',
       zIndex: 99,
     }),
     navContainer: {
@@ -47,7 +46,8 @@ export const useStyles = makeStyles<Theme, { device: DeviceType }>(
       },
     },
     homeButtonIcon: {
-      height: '60px',
+      height: 'auto',
+      width: '231px',
       color: theme.palette.primary.main,
     },
     walletButtonContainer: {

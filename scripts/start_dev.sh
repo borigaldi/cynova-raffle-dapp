@@ -19,7 +19,7 @@ else
 fi
 
 set -m
-DRAFFLE_PROGRAM_ID=dRaFFLe111111111111111111111111111111111112
+DRAFFLE_PROGRAM_ID=rafdfDKiLiny6puqDfeLRTN1xUscNxi5ew4QAqCHpQU
 COMMUNITY_STAKING_PROGRAM_ID="$(solana address -k ${SCRIPT_PATH}/sample_accounts/community_staking-keypair.json)"
 DISPENSER_PROGRAM_ID="$(solana address -k ${SCRIPT_PATH}/sample_accounts/dispenser-keypair.json)"
 

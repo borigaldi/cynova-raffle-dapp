@@ -13,6 +13,7 @@ export const Body: FC<BodyProps> = ({ children }) => {
     <Container
       style={{
         width: '90%',
+        height: '100%',
         padding: '0 10px',
         display: ' flex',
         alignItems: 'center',
