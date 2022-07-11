@@ -10,6 +10,7 @@ const routes = {
   RAFFLES: '/raffles',
   STAKE: '/stake',
   TOOLS: '/tools',
+  AUCTION: '/auction',
   ADMIN: adminRoutes,
 };
 
