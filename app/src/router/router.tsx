@@ -10,6 +10,7 @@ import AdminHomeScreen from '../pages/admin/AdminHomeScreen';
 import AdminRaffleScreen from '../pages/admin/AdminRaffleScreen';
 import ToolsScreen from '../pages/ToolsScreen';
 import AuctionScreen from '../pages/AuctionScreen';
+import AuctionAdminScreen from '../pages/admin/AdminAuctionScreen';
 
 export const Router: FC = () => (
   <Switch>
@@ -19,6 +20,7 @@ export const Router: FC = () => (
     <Route path={routes.STAKE} exact component={StakeScreen} />
     <Route path={routes.TOOLS} exact component={ToolsScreen} />
     <Route path={routes.AUCTION} exact component={AuctionScreen} />
+    <Route path={routes.ADMIN.AUCTION} exact component={AuctionAdminScreen} />
     <Route path={routes.ADMIN.HOME} exact component={AdminHomeScreen} />
     <Route
       path={`${routes.ADMIN.RAFFLES}/:id`}

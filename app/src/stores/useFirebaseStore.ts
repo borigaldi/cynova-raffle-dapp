@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { notify } from "../utils/notifications";
+import { PublicKey } from '@solana/web3.js';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -37,6 +38,15 @@ export enum MessagesEnum {
   BidCloseSuccess = `Bid Closed successful!!`,
 }
 
+export interface ListBidProps {
+  wallet: PublicKey
+  description: string,
+  name: string,
+  url: string,
+  bidAmount: number,
+  minIncrease: number,
+}
+
 export const useFirebaseStore = create((set, _get) => ({
   bids: [],
   listing: [],
@@ -55,17 +65,25 @@ export const useFirebaseStore = create((set, _get) => ({
       console.log("bid placed>>: ", docRef.id);
     }
   },
-  listBid: (amount: any, publicKey: any, description: any, Nftname: any, url: any, minIncrease: any) => {
+  listBid: (props: ListBidProps) => {
+    const {
+      wallet,
+      description,
+      name,
+      url,
+      bidAmount,
+      minIncrease,
+    } = props;
     set({ loader: true });
-    console.log("adding: ");
+    console.log("adding: ", { props });
     let data = {
-      wallet: publicKey.toBase58(),
-      description: description,
-      name: Nftname,
+      wallet: wallet.toBase58(),
+      description,
+      name,
       state: true,
-      url: url,
-      bidAmount: amount,
-      minIncrease: minIncrease,
+      url,
+      bidAmount,
+      minIncrease,
     };
     updateDoc(doc(db, CollectionPathEnum.Listings, "solnft"), data).then(
       (notify as any)({ type: "success", message: MessagesEnum.ListingUpdateSuccess })

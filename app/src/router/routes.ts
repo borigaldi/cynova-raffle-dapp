@@ -3,6 +3,7 @@ const adminNs = '/admin_panel';
 const adminRoutes = {
   HOME: `${adminNs}/`,
   RAFFLES: `${adminNs}/raffles`,
+  AUCTION: `${adminNs}/auction`,
 };
 
 const routes = {
