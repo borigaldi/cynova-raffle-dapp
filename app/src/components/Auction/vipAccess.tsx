@@ -1,13 +1,13 @@
 import { FC, useState } from 'react';
 
-import MainContent from './mainContent';
+import Index from './index';
 
 export const NftVipAccess: FC = () => {
     const [isHolder, setNftHolder] = useState(false);
 
     return (
         <div>
-            <MainContent owner={isHolder} />
+            <Index owner={isHolder} />
         </div>
     );
 };

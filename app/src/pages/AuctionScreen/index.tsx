@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import Screen from '../../components/layout/Screen';
-import Auction from '../../components/Auction/mainContent';
+import Auction from '../../components/Auction';
 
 const AuctionScreen: FC = () => {
   return (

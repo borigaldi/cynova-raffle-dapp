@@ -11,7 +11,7 @@ interface MainContentProps {
   owner?: boolean;
 }
 
-const MainContent: FC<MainContentProps> = (props) => {
+const Auction: FC<MainContentProps> = (props) => {
   const { connection } = useConnection();
   const { publicKey } = useWallet();
 
@@ -208,4 +208,4 @@ const MainContent: FC<MainContentProps> = (props) => {
   );
 };
 
-export default MainContent;
+export default Auction;
