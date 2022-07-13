@@ -27,17 +27,27 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+export enum CollectionPathEnum {
+  Bids = "solbids",
+  Listings = "sollistings",
+}
+
+export enum MessagesEnum {
+  ListingUpdateSuccess = `Listing update successful!!`,
+  BidCloseSuccess = `Bid Closed successful!!`,
+}
+
 export const useFirebaseStore = create((set, _get) => ({
   bids: [],
   listing: [],
   topBidder: [],
   getBids: () => {
-    onSnapshot(collection(db, "solbids"), (snapshot) => {
+    onSnapshot(collection(db, CollectionPathEnum.Bids), (snapshot) => {
       set({ bids: snapshot.docs.map((doc) => doc.data()) });
     });
   },
   placeBid: async (amount: any, publicKey: any) => {
-    const docRef = await addDoc(collection(db, "solbids"), {
+    const docRef = await addDoc(collection(db, CollectionPathEnum.Bids), {
       bidAmount: amount,
       wallet: publicKey,
     });
@@ -57,12 +67,12 @@ export const useFirebaseStore = create((set, _get) => ({
       bidAmount: amount,
       minIncrease: minIncrease,
     };
-    updateDoc(doc(db, "sollistings", "solnft"), data).then(
-      (notify as any)({ type: "success", message: `Listing update successful!!` })
+    updateDoc(doc(db, CollectionPathEnum.Listings, "solnft"), data).then(
+      (notify as any)({ type: "success", message: MessagesEnum.ListingUpdateSuccess })
     );
   },
   getListings: () => {
-    onSnapshot(collection(db, "sollistings"), (snapshot) => {
+    onSnapshot(collection(db, CollectionPathEnum.Listings), (snapshot) => {
       set({ listing: snapshot.docs.map((doc) => doc.data()) });
     });
   },
@@ -70,14 +80,21 @@ export const useFirebaseStore = create((set, _get) => ({
     let data = {
       state: false,
     };
-    await updateDoc(doc(db, "sollistings", "solnft"), data).then(
-      (notify as any)({ type: "success", message: `Bid Closed successful!!` })
+    await updateDoc(doc(db, CollectionPathEnum.Listings, "solnft"), data).then(
+      (notify as any)({ type: "success", message: MessagesEnum.BidCloseSuccess })
     );
   },
   winner: () => {
-    onSnapshot(query(collection(db, "solbids"),orderBy("bidAmount", "desc"), limit(1)), (snapshot) => {
-      set({ topBidder: snapshot.docs.map((doc) => doc.data()) });
-    });
+    onSnapshot(
+      query(
+        collection(db, CollectionPathEnum.Bids),
+        orderBy("bidAmount", "desc"),
+        limit(1)
+      ),
+      (snapshot) => {
+        set({ topBidder: snapshot.docs.map((doc) => doc.data()) });
+      }
+    );
   },
 
 }));
