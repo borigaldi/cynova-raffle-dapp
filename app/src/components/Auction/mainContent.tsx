@@ -8,7 +8,7 @@ import useUserSOLBalanceStore from "../../stores/useSolBalanceStore";
 import { useFirebaseStore } from "../../stores/useFirebaseStore";
 
 interface MainContentProps {
-  owner: boolean;
+  owner?: boolean;
 }
 
 const MainContent: FC<MainContentProps> = (props) => {
@@ -122,9 +122,9 @@ const MainContent: FC<MainContentProps> = (props) => {
             <div className="p-2 flex flex-col pr-10">
               {listings.length !== 0 ? (
                 <img
-                width={400}
-              height={400}
-                  src={listings[0].url.toString()}
+                  width={400}
+                  height={400}
+                  src={(listings[0]?.url || '').toString()}
                   alt=""
                   className="block object-cover object-center w-100  rounded-md  dark:bg-coolGray-500"
                 ></img>
