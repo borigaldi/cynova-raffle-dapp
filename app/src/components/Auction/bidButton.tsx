@@ -10,6 +10,7 @@ export interface BidProps {
 }
 
 export const Bid = (props: BidProps) => {
+    const { bidAmount, bidPermission } = props;
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
 
@@ -25,6 +26,7 @@ export const Bid = (props: BidProps) => {
     }
 
     const onClick = async () => {
+        console.log('onClick:', { publicKey, bidAmount, bidPermission });
         const notification: any = new (notify as any)({ type: 'error', message: `Wallet Not Connected! ` });
         if (!publicKey) throw notification;
         bidAction();
@@ -45,9 +47,7 @@ export const Bid = (props: BidProps) => {
                     </span>
 
                     <div className="hidden group-disabled:block ">
-                        {
-                            !publicKey ? "Wallet Not Connected": (!props.auctionState ? "AUCTION CLOSED" : "Not Enough SOL")
-                        }
+                        {!publicKey ? "Wallet Not Connected": (!props.auctionState ? "AUCTION CLOSED" : "")}
                     </div>
                 </button>
             </div>

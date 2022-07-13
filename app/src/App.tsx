@@ -12,6 +12,7 @@ import ThemeProvider from './providers/ThemeProvider';
 import Wallet from './components/Wallet';
 import ScrollToTop from './components/ScrollToTop';
 import './App.css';
+import Notifications from './components/Auction/Notification'
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
                     duration: 5000,
                   }}
                 />
+                <Notifications />
                 <ScrollToTop />
               </RafflesStoreProvider>
             </ProgramApisProvider>

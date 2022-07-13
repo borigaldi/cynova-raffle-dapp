@@ -24,6 +24,7 @@ const Auction: FC<MainContentProps> = (props) => {
   const bids = useFirebaseStore((state: any) => state.bids);
 
   const userSolanaBalance = useUserSOLBalanceStore((s) => s.balance);
+  console.log('Auction', { userSolanaBalance });
   const { getUserSOLBalance } = useUserSOLBalanceStore();
 
   const [bidAmountCounter, setBidAmountCounter] = useState(600);
@@ -46,18 +47,18 @@ const Auction: FC<MainContentProps> = (props) => {
   };
 
   const onPlaceBid = () => {
-    if (highestBid > bidAmountCounter || (listings.length !== 0 ? listings[0].bidAmount > bidAmountCounter :"") || (userSolanaBalance !== 0 ? !((userSolanaBalance)> bidAmountCounter ) : true ) )
+    if (highestBid > bidAmountCounter || (listings.length ? listings[0].bidAmount > bidAmountCounter :"") || (userSolanaBalance !== 0 ? !((userSolanaBalance)> bidAmountCounter ) : true ) )
       throw new (notify as any)({
         type: "error",
         message: `Not enough or Exceeds wallet SOL!`,
       });
 
-    if ((listings.length !== 0 ? ((parseFloat(listings[0].minIncrease) + highestBid ) < bidAmountCounter) :false)) {
+    if ((listings.length ? ((parseFloat(listings[0].minIncrease) + highestBid ) <= bidAmountCounter) : false)) {
       placeBid(bidAmountCounter, publicKey?.toBase58());
     } else {
       throw new (notify as any)({
         type: "error",
-        message: `increase Bid by atleast ${(listings.length !== 0 ? listings[0].minIncrease :"")} SOL`,
+        message: `increase Bid by atleast ${(listings.length ? listings[0].minIncrease :"")} SOL`,
       });
     }
   };
@@ -89,7 +90,7 @@ const Auction: FC<MainContentProps> = (props) => {
             </p>
 
             <p className="text-indigo-500 text-xl font-medium">
-            ◎ {topBidder.length != 0 ? topBidder[0].bidAmount: 0}
+            ◎ {topBidder.length ? topBidder[0].bidAmount: 0}
             </p>
           </div>
         </div>
@@ -120,7 +121,7 @@ const Auction: FC<MainContentProps> = (props) => {
           {/* <h1 className="mx-auto sm:text-3xl font-semibold px-2 py-4 5 ">{total} CurrentBids</h1> */}
           <div className="mx-auto  border-gray-900 rounded-md p-16 flex flex-col sm:flex-row sm:justify-evenly">
             <div className="p-2 flex flex-col pr-10">
-              {listings.length !== 0 ? (
+              {listings.length ? (
                 <img
                   width={400}
                   height={400}
@@ -152,13 +153,13 @@ const Auction: FC<MainContentProps> = (props) => {
               <div className="shadow-lg  w-full p-4 bg-transparent ">
                 <div className="w-full">
                   <p className="text-white-800 text-xl font-medium mb-2 text-center">
-                    {listings.length !== 0
+                    {listings.length
                       ? listings[0].name
                       : "loading nft name ..."}
                   </p>
 
                   <p className="text-white-500 text-md font-medium w-80 text-center">
-                    {listings.length !== 0
+                    {listings.length
                       ? listings[0].description
                       : "loading nft description ..."}
                   </p>
@@ -171,7 +172,7 @@ const Auction: FC<MainContentProps> = (props) => {
                     ) : (
                       ""
                     )} */}
-                    Bidding starts at   ◎ {listings.length !== 0 ? listings[0].bidAmount : ""}
+                    Bidding starts at   ◎ {listings.length ? listings[0].bidAmount : ""}
                   </p>
                 </div>
               </div>
@@ -184,19 +185,19 @@ const Auction: FC<MainContentProps> = (props) => {
                 />
               </div>
               <Bid
-                auctionState={listings.length !== 0 ? listings[0].state : false}
+                auctionState={listings.length ? listings[0].state : false}
                 bidAmount={bidAmountCounter}
                 placeBid={onPlaceBid}
                 bidPermission={
                   !(
-                    (listings.length !== 0 ? listings[0].bidAmount : 0) >
+                    (listings.length ? listings[0].bidAmount : 0) >
                     userSolanaBalance 
                   )
                 }
               />
                 <div className="flex justify-end text-xs dark:text-black-400">
                   <a rel="noopener noreferrer" href="#">
-                    min bid increase is {listings.length !== 0 ? listings[0].minIncrease : false} SOL 
+                    min bid increase is {listings.length ? listings[0].minIncrease : false} SOL
                   </a>
                 </div>
             </div>
