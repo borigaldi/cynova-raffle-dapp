@@ -66,7 +66,7 @@ const MainContent: FC<MainContentProps> = (props) => {
     getListings();
     getBids();
     winner();
-    getUserSOLBalance(
+    if (publicKey) getUserSOLBalance(
       publicKey as any,
       connection
     );
@@ -77,7 +77,7 @@ const MainContent: FC<MainContentProps> = (props) => {
       }
       setHighestBid(Math.max(...amounts));
     }
-  }, [publicKey, connection, getUserSOLBalance,bids.length]);
+  }, [publicKey, connection, getUserSOLBalance, bids.length]);
 
   return (
     <div className="">
